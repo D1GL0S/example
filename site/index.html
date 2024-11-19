@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-16be-with-bom" />
+    <title>MyNameIS</title>
+    <meta name="generator" content="BBEdit 14.6" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+    </script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <style>
+
+    .center {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        background: white;
+        border-radius: 10px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .center:target {
+        opacity: 1;
+        pointer-events: auto;
+        overflow-y: auto;
+      }
+
+      .center h1 {
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid silver;
+      }
+
+      .center form {
+        padding: 0 40px;
+        box-sizing: border-box;
+      }
+
+      .site {
+        background-color: peachpuff;
+        margin: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+    .nav {
+        display: flex;
+        justify-content: left;
+        margin-left: 1em;
+        margin-bottom: 10px;
+    }
+
+    .men{
+        background-color: antiquewhite;
+        display: flex;
+        border-radius: 20px;
+        flex-direction: row;
+        justify-content: center;
+        width: 95vw;
+        font-family: monospace;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+
+    a:link,
+    a:visited {
+        text-decoration: none;
+    }
+
+    button {border: 7px solid #e3be7d80; outline: none;position: relative;overflow: hidden;margin: 10px;padding: 10px 20px;background: #E3be7d80;font-size: 20px;cursor: pointer;transition: 1s; border-radius: 15px;}
+    button:before {content: "";position: absolute;left: 0;width: 100%;height: 0%;background: navajowhite; z-index: -1;transition: 1s;}
+    .button1 {
+        color: black
+    }
+
+    .button1:hover {
+        color: aliceblue;
+    }
+
+    .button1:before {
+        top: 0;border-radius: 0 0 50% 50%;
+    }
+
+    .button1:hover:before {
+        height: 200%;
+    }
+
+    .boxMenu {
+        background-color:white;
+        padding: 10px;
+        padding-right: 20px;
+        padding-left: 20px;
+        
+        
+    }
+
+    .collapsibleMenu {
+        background-color: antiquewhite;
+        border-radius: 15px;
+
+        text-align: center;
+        margin-top: 10px;
+
+    }
+
+    .menuText{
+        background: url(https://cdn-icons-png.flaticon.com/512/3502/3502458.png) no-repeat left center;
+        background-size: 25px 25px;
+        font-family: monospace;
+        font-size: 30px;
+        cursor: pointer;
+        display: block;
+        padding: 10px 0 10px 50px;
+    }
+
+    .menuContents{
+        display: none;
+    }
+
+    input:checked ~ .menuContents {
+        max-height: 100%;
+        display: flex;
+    }
+
+    input#menu{
+      display: none;
+    }
+
+    input#OpenReg {
+      display: none;
+    }
+
+
+    .main {
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 20px;
+        font-family: monospace;
+        font-size: 1em;
+        margin-left: 20em;
+        margin-right: 20em;
+    }
+
+    .userID {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: left;
+    }
+
+    .userPhoto{
+        display: flex;
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+        padding: 3px;
+        margin-top: 1.3em;
+        border-radius: 15px;
+        justify-content: center;
+        background-color: aliceblue;
+    }
+
+    .userName {
+        margin-top: 0.9em;
+        margin-left: 1em;
+    }
+
+    .TextMenu1 {
+      border: 7px solid #e3be7d80;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #E3be7d80;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 1s; 
+      border-radius: 15px;
+    }
+
+    form .txt_field {
+      position: relative;
+      border-bottom: 2px solid #adadad;
+      margin: 30px 0;
+    }
+
+    .txt_field input {
+      width: 100%;
+      padding: 0 5px;
+      height: 40px;
+      font-size: 16px;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    .txt_field label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      color: #adadad;
+      transform: translateY(-50%);
+      font-size: 16px;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .txt_field span::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: peru;
+
+      transition: 0.3s;
+    }
+
+    .txt_field input:focus ~ label,
+    .txt_field input:valid ~ label {
+      top: -5px;
+      color: antiquewhite;
+    }
+
+    .txt_field input:focus ~ span::before,
+    .txt_field input:valid ~ span::before {
+      width: 100%;
+    }
+
+    .pass {
+      margin: -5px 0px 15px 5px;
+      color: #a6a6a6;
+      cursor: pointer;
+    }
+
+    .pass:hover {
+      text-decoration: underline;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      height: 50px;
+      border: 1px solid;
+      background: peru;
+      font-size: 18px;
+      border-radius: 25px;
+
+      font-weight: 700;
+      color: #e9f4fb;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      border-color: peru;
+      transition: 0.5s;
+    }
+
+    .contents{
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      background-color: mistyrose;
+      padding: 10px;
+      border-radius: 20px;
+    }
+
+    .imgContents{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: moccasin;
+      padding: 5px;
+      border-radius: 20px;
+      max-width: 20%;
+      max-height: 20%;
+    }
+
+    .like {
+      display: flex;
+      justify-content: left;
+      background-color: aquamarine;
+      border-radius: 20px;
+    }
+    </style>
+
+</head>
+<body class="site">
+  <header class="header">
+      <nav class="nav">
+        <div class="collapsibleMenu">
+          <input type="checkbox" id="menu">
+          <div class="menuText">
+            <label for="menu">menu</label>
+          </div>
+          <div id="menuContents" class="menuContents">
+            <ul id="mhtmlCHeck" class="men">
+              <div class="OpenReg">
+                <input type="checkbox" id="OpenReg">
+                <div class="TextMenu1">
+                  <label for="OpenReg">
+                    <a  href="#Reg" id="OpenReg">Регистрация</label></a>
+                    <div class="center" id="Reg">
+                    <h1> Вход</h1>
+                    <form method="post">
+                    <div class="txt_field">
+                    <input type="text" id="usName" required>
+                    <label>Имя</label>
+                    <span></span>
+                  </div>
+      <div class="txt_field">
+        <input type="text" id="FName" required>
+        <label>Фамилия</label>
+        <span></span>
+      </div>
+        <input type="submit" value="Войти">
+    </form>
+  </div>
+
+  <script>
+    const openRegLink = document.getElementById("OpenReg");
+    const regModal = document.getElementById("Reg");
+
+    openRegLink.addEventListener("click", function(event) {
+      event.preventDefault();
+      regModal.style.display = "block";
+    });
+  </script>
+                </div>
+              </div>
+              <form action="#" target="_blank">
+                <button class="button1">Домой</button>
+              </form>
+              <form action="#" target="_blank">
+                <button class="button1">Группы</button>
+              </form>
+              <form action="#" target="_blank">
+                <button class="button1">Сообщения</button>
+              </form>
+              <script>
+              const watchOpener = document.getElementById("#menu");
+              for (let index = 0; index < 255; index++) {
+                const element = array[index];
+                watchOpener.addEventListener("click", (e)=>{
+                document.getElementById("#menuContents").style.display = "flex";
+              })
+              }
+
+              const watchOpener1 = document.getElementById("#OpenReg");
+              for (let index = 0; index < 255; index++) {
+                const element = array[index];
+                watchOpener1.addEventListener("click", (e)=>{
+                document.getElementById(".center").style.display = "flex";
+              })
+              }
+            </script>
+            </ul>
+          </div>
+        </div> 
+      </nav>
+  </header>
+  <main class = "main">
+    <article class="article">
+        <section class="section">
+          <div class="infoID">
+            <div class="userID">
+            <div id="userNameJS" class="userName">
+              <h1>Коля Ветров</h1>
+            </div>
+            <div class="userPhoto">
+                <img src="https://www.freeiconspng.com/thumbs/person-icon/clipart--person-icon--cliparts-15.png" alt="">
+            </div>
+          </div>
+          <div class="contents">
+            <div class="textContent">
+              <h1>Обложка профиля</h1>
+            </div>
+            <div class="imgContents">
+              <img src="https://www.freeiconspng.com/thumbs/person-icon/clipart--person-icon--cliparts-15.png" alt="">
+          </div>
+          <div class="like">
+            <input type="checkbox" id="Like">
+            <div class="menuText_1">
+              <label for="Like">Like</label>
+            </div>
+            <script>
+              const watchOpener2 = document.getElementById("#Like");
+              for (let i = 0; i < 255; i++) {
+                const element = array[index];
+                watchOpener2.addEventListener("click", (e)=>{
+                document.getElementById("#menuContents").style.display = "flex";
+                document.getElementById(".like").style.display = "none";
+              })
+              }
+            </script>
+          </div>
+        </section>
+        <section class="section">
+          <div class="infoID">
+            <div class="userID">
+            <div id="userNameJS" class="userName">
+              <h1>Cветик</h1>
+            </div>
+            <div class="userPhoto">
+                <img src="https://vk.com/photo486932026_457246591" alt="">
+            </div>
+          </div>
+          <div class="contents">
+            <div class="textContent">
+              <h1>Новые фоточки))</h1>
+            </div>
+            <div class="imgContents">
+              <img src="https://mobimg.b-cdn.net/v3/fetch/c1/c16ef7461f4516485a2bcb65266bad09.jpeg" alt="">
+          </div>
+        </section>
+        <aside class="aside">
+
+        </aside>
+    </article>
+    <aside class="asideMine">
+
+    </aside>
+  </main>
+  <footer class="footer">
+    <nav class="navfoot">
+
+    </nav>
+	P.S Сделано за меньше чем час :D
+  </footer>
+</body>
+</html>
