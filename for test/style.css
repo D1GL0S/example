@@ -1,0 +1,13 @@
+.container {
+    display: grid;
+    width: 50vw;
+    height: 180vh;
+    align-content: center;
+    border: 2px solid rgb(80, 145, 27);
+    border-radius: 20px;
+    row-gap: 1%;
+    justify-content: center;
+}
+.container * {
+    border-radius: 10px;
+}

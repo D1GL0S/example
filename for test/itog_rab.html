@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #verx{
+            position: fixed;
+            height: 5vh;
+            width: 100vw;
+            bottom: 95vh;
+            display: flex;
+         }
+        #baza{
+            top: 5vh;
+            height: 220vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #ava{
+            margin-left: 2vw;
+            border-radius: 30px;
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+        }
+        .roww{
+            border-radius: 30px;
+            height: 60px;
+            width: 60px;
+        }
+        .tekst{
+            display: flex;
+            max-width: 40vw;
+            flex-direction: column;
+        }
+        .imgH{
+            display: flex;
+            margin: 5px;
+        }
+        @media screen and (max-width: 550px) {
+            body{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 550px) and (max-width: 1000px) {
+            #baza{
+                height: 300vh;
+            }
+            .container{
+                height: 260vh;
+            }
+        }
+        @media screen and (min-width: 1000px) and (max-width: 1400px) {
+            #baza{
+                height: 250vh;
+            }
+            .container{
+                height: 220vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="verx">
+        <img id="ava" src="https://www.film.ru/sites/default/files/filefield_paths/minecraft_horizontal_key_art.0.jpg" alt="">
+    </section>
+    <section id="baza">
+        <section class="container">
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://gagaru.club/uploads/posts/2023-02/1676106794_gagaru-club-p-yegor-krid-krasivii-instagram-83.jpg" alt="">
+                    <h1>ЕГОР КРИД</h1>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur a cumque ullam laudantium dolores commodi animi delectus alias similique, voluptatum quidem voluptatem voluptatibus laboriosam magnam rerum provident ducimus necessitatibus accusantium?</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://ic.pics.livejournal.com/petitnicolas/86278710/615267/615267_original.png" alt="">
+                    <h1>Владимир Соловьев</h1>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis amet, dolorum consequuntur excepturi asperiores laudantium unde obcaecati, optio, quaerat suscipit nostrum voluptatem similique earum exercitationem tenetur cumque veniam doloribus tempora.</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://avatars.mds.yandex.net/i?id=2a000001875ce5a7f35794cda1a5884fb8df-1543035-fast-images&n=13" alt="">
+                    <h1>Дима Билан</h1>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit excepturi minima, eum repudiandae ad laboriosam culpa atque voluptatum voluptate, adipisci ab earum possimus tempore? Perferendis ad dicta repellat nihil vitae.</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://uhd.name/uploads/posts/2022-09/1662675191_26-uhd-name-p-klava-koka-volosi-devushka-instagram-28.jpg" alt="">
+                    <h1>Клава Кока</h1>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, nisi soluta quam minima deserunt error natus debitis exercitationem sunt illum inventore reiciendis dolores nam ea tempore sed alias! Consequatur, ex.</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://avatars.mds.yandex.net/i?id=ac1c3117c1cf8f9f59481ad99aa39cc22272483f-8179580-images-thumbs&n=13" alt="">
+                    <h1>Катя Адушкина</h1>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam expedita illum tempore sit, cum saepe harum, eum consequuntur facilis ratione debitis quidem molestiae unde minus pariatur iste id exercitationem dolor.</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://sun9-38.userapi.com/impg/IV4B-Q0R6WlYU2jj2TbZRaXt-Mv0aRNERlN2bQ/kxINzSWBO1E.jpg?size=869x1080&quality=96&sign=ac54e33e9c7aca2513a9ac2eeadbe6b2&c_uniq_tag=GP07H2_1glXU5PrLnaKK6uLbz7MCXgHzL77eH1j1H2o&type=album" alt="">
+                    <h1>Дмитрий Нагиев</h1>
+                </div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea alias odio officia voluptate, consequuntur delectus reprehenderit dicta dolore quo molestiae praesentium ipsam quae in fuga architecto qui reiciendis. Cupiditate, ut?</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://avatars.mds.yandex.net/i?id=58ee7df3ab6f2935c08d4255899e9b17-4960439-images-thumbs&n=13" alt="">
+                    <h1>Оксимирон</h1>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates eos minima doloremque cumque amet. Velit, corrupti repellat. Perferendis, accusantium velit deserunt quos omnis alias. Repudiandae ratione tenetur dolores dicta cupiditate!</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+            <div class="tekst">
+                <div class="imgH">
+                    <img class="roww" src="https://avatars.mds.yandex.net/i?id=cbe9495e8665bbdedb3b2a11a43739cef7142e14-8159483-images-thumbs&n=13" alt="">
+                    <h1>Хазбик</h1>
+                </div>
+                <p>Клубника бомба sit amet consectetur adipisicing elit. Saepe veritatis sunt vel cupiditate et, sapiente accusamus, ipsa unde qui cumque eligendi tenetur necessitatibus fugit quidem nesciunt similique, aperiam tempora architecto.</p>
+                <button>НРАВИТСЯ!</button>
+            </div>
+        </section>
+    </section>
+	</section class=footer>
+	<p>Сделано за 20 минут </p>
+	</section>
+</body>
+</html>
