@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'graph_app',
 ]
 
@@ -69,6 +70,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'random_graph.wsgi.application'
+ASGI_APPLICATION = 'random_graph.asgi.application'
+
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',  # Использовать InMemory канал, если Redis не требуется
+    },
+}
+
 
 
 # Database
@@ -117,7 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR / 'random_graph' / 'static',]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

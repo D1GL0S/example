@@ -1,14 +1,76 @@
-{% load static %}
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-    <title>MEME GRAPH</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-    <h1>MEME</h1>
-    <img src="{% static 'graph_app/graph.png' %}" alt="График">
+    <h1>Live Graph</h1>
+    <canvas id="liveGraph" width="400" height="200"></canvas>
+
+    <script>
+        // Настроим WebSocket соединение
+        const socket = new WebSocket('ws://' + window.location.host + '/ws/graph/');
+
+        // Настроим график
+        const ctx = document.getElementById('liveGraph').getContext('2d');
+        const data = {
+            labels: [],  // пустые метки по оси X
+            datasets: [{
+                label: 'Graph Data',
+                data: [],  // пустой набор данных
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    x: { type: 'linear', position: 'bottom' },
+                    y: { min: -1, max: 1 },
+                },
+                animation: {
+                    duration: 0  // без анимации, чтобы обновления были быстрыми
+                }
+            }
+        };
+
+        const chart = new Chart(ctx, config);
+
+        // Обработчик сообщений от WebSocket
+        socket.onmessage = function(e) {
+            const message = JSON.parse(e.data);
+
+            // Добавляем новое значение в график
+            const time = Date.now(); // текущее время
+            data.labels.push(time);
+            data.datasets[0].data.push(message.value);
+
+            // Убираем старые данные, если их слишком много
+            if (data.labels.length > 100) {
+                data.labels.shift();
+                data.datasets[0].data.shift();
+            }
+
+            // Обновляем график
+            chart.update();
+        };
+
+        // Обработчик ошибок WebSocket
+        socket.onerror = function(e) {
+            console.error("WebSocket error:", e);
+        };
+
+        // Закрытие соединения
+        socket.onclose = function(e) {
+            console.log("WebSocket closed:", e);
+        };
+    </script>
 </body>
 </html>
