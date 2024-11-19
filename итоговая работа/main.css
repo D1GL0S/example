@@ -1,0 +1,13 @@
+@import url(./color.css);
+.container{
+    background-color: var(--h)
+}
+.container *{
+    background-color: var(--p);
+}
+body{
+    background-color: var(--fon);
+}
+#verx{
+    background-color: var(--kr);
+}
